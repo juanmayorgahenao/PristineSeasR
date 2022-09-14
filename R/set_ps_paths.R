@@ -1,6 +1,6 @@
 # Set Gd path
 
-set_ps_paths <<- function(email){
+set_ps_paths <- function(email){
 
   system <- Sys.info()["sysname"]
 
