@@ -4,7 +4,12 @@ ps_palettes <- list(
            `turquoise` = "#43b4c4",
            `green` = "#aae4d8",
            `yellow` = "#ffcc00",
-           `white` = "#ffffff"))
+           `ivory` = "#FFFFF0"),
+  alternative = c(`Blue Sapphire` = "#05668D",
+                  `Maximum Blue Green` = "#5bc0be",
+                  `Harvest Gold` = "#d8973c",
+                  `Cafe Noir`="#4c2e05",
+                  `Rich Black FOGRA 39` = "#06070e"))
 
 ps_cols <- function(...) {
   cols <- c(...)
