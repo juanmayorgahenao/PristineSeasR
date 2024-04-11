@@ -4,12 +4,23 @@ ps_palettes <- list(
            `turquoise` = "#43b4c4",
            `green` = "#aae4d8",
            `yellow` = "#ffcc00",
-           `ivory` = "#FFFFF0"),
+           `lightgrey` = "#CDCACC"),
+  depth_strata = c(`Deep` = "#181D20FF",
+                   `Shallow` = "#4A5F71FF",
+                   `Supershallow` = "#6F8BA0FF"),
+  exposure = c(`Lagoon` = "#3CC8C0FF",
+               `Windward` = "#F2EBBBFF",
+               `Leeward` = "#09283CFF"),
+  habitat = c(`Forereef` = "#E27B0CFF",
+              `Patchreef` = "#FED105FF",
+              `Backreef` = "#145A76FF",
+              `Fringing reef` = "#6CA167FF"),
   alternative = c(`Blue Sapphire` = "#05668D",
                   `Maximum Blue Green` = "#5bc0be",
                   `Harvest Gold` = "#d8973c",
                   `Cafe Noir`="#4c2e05",
-                  `Rich Black FOGRA 39` = "#06070e"))
+                  `Rich Black FOGRA 39` = "#06070e"),
+  gfw1 = c('#FF705E', '#FF9046', '#CAD33D', '#21FFFF', '#21FFFF'))
 
 ps_cols <- function(...) {
   cols <- c(...)
@@ -29,6 +40,7 @@ ps_pal <- function(palette = "main",
   if (reverse) pal <- rev(pal)
 
   grDevices::colorRampPalette(pal, ...)
+
 }
 
 #' Color scale constructor for Pristine Seas colors
@@ -54,9 +66,9 @@ scale_color_pristine_seas <- function(palette = "main",
 }
 
 
-#' Fill scale constructor for drsimonj colors
+#' Fill scale constructor for ps colors
 #'
-#' @param palette Character name of palette in drsimonj_palettes
+#' @param palette Character name of palette in ps_palettes
 #' @param discrete Boolean indicating whether color aesthetic is discrete or not
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to discrete_scale() or
@@ -69,8 +81,9 @@ scale_fill_pristine_seas <- function(palette = "main",
   pal <- ps_pal(palette = palette, reverse = reverse)
 
   if (discrete) {
-    ggplot2::discrete_scale("fill", paste0("drsimonj_", palette), palette = pal, ...)
+    ggplot2::discrete_scale("fill", paste0("ps_", palette), palette = pal, ...)
   } else {
     ggplot2::scale_fill_gradientn(colours = pal(256), ...)
   }
 }
+
